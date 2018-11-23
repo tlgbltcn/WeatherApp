@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#a63c3c</color>
+
+    <color name="nav_header_bg">#fafafa</color>
+    <color name="color_unselectedtab">#bcbcbc</color>
+    <color name="white">#FFFFFF</color>
+    <color name="color_nav">#3746a2</color>
+    <color name="black">#000000</color>
+
+
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="list_temperature">
+        <item>@string/celsius_des</item>
+        <item>@string/fahrenheit_des</item>
+    </string-array>
+
+    <string-array name="list_temperature_values">
+        <item>@string/celsius</item>
+        <item>@string/fahrenheit</item>
+    </string-array>
+
+
+    <string-array name="list_wind">
+        <item>@string/knots</item>
+        <item>@string/kmh</item>
+        <item>@string/ms</item>
+        <item>@string/mph</item>
+    </string-array>
+
+    <string-array name="list_pressure">
+        <item>@string/inHg</item>
+        <item>@string/mmHg</item>
+        <item>@string/mBar</item>
+    </string-array>
+
+    <string-array name="list_precipitation">
+        <item>@string/in_</item>
+        <item>@string/mm</item>
+    </string-array>
+
+
+    <string-array name="list_dateformat">
+        <item>@string/am</item>
+        <item>@string/pm</item>
+    </string-array>
+
+
+
+
+
+</resources>

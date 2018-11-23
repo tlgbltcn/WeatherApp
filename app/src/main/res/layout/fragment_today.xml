@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tlgbltcn.app.weather.ui.main.fragment.today.TodayFragmentViewModel" />
+
+        <variable
+            name="handler"
+            type="com.tlgbltcn.app.weather.ui.main.fragment.today.TodayHandler"/>
+
+
+        <variable
+            name="today"
+            type="com.tlgbltcn.app.weather.db.entities.TodayEntity"/>
+
+        <variable
+            name="todayResources"
+            type="com.android.example.github.vo.Resource"/>
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/ll_today"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+
+            app:cardBackgroundColor="@android:color/transparent"
+            android:layout_margin="4dp"
+            app:cardElevation="2dp"
+            app:cardCornerRadius="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="340dp">
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

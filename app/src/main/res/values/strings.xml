@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Weather</string>
+    <string name="position" translatable="false">position</string>
+    <string name="title">Title</string>
+    <string name="nav_notification">Notification</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="nav_feed_back">Feed Back</string>
+    <string name="nav_share">Share</string>
+    <string name="today">Today</string>
+    <string name="fivedays">5 Days</string>
+    <string name="fifteendays">15 Days</string>
+
+
+    <!-- Preferences -->
+
+    <string name="celsius">°C</string>
+    <string name="celsius_des">Celsius (°C)</string>
+    <string name="fahrenheit">°F</string>
+    <string name="fahrenheit_des">Fahrenheit (°F)</string>
+    <string name="knots">knots</string>
+    <string name="kmh">kilometer</string>
+    <string name="ms">meter</string>
+    <string name="mph">mile</string>
+    <string name="inHg">inHg</string>
+    <string name="mmHg">mmHg</string>
+    <string name="mBar">mBar</string>
+    <string name="in_">in</string>
+    <string name="mm">mm</string>
+    <string name="am">12h</string>
+    <string name="pm">24h</string>
+    <string name="temperature">Temperature</string>
+    <string name="wind">Wind</string>
+    <string name="pressure">Pressure</string>
+    <string name="precipitation">Precipitation</string>
+    <string name="day_format">Date Format</string>
+    <string name="units">Units</string>
+</resources>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <PreferenceCategory android:title="@string/units" android:icon="@drawable/ic_settings_black_24dp">
+
+
+        <ListPreference
+            android:entries="@array/list_temperature"
+            android:entryValues="@array/list_temperature_values"
+            android:key="temperature"
+            android:summary="Default"
+            android:title="@string/temperature" />
+
+
+        <ListPreference
+            android:entries="@array/list_wind"
+            android:entryValues="@array/list_wind"
+            android:key="wind"
+            android:summary="Default"
+            android:title="@string/wind">
+
+        </ListPreference>
+
+        <ListPreference
+
+            android:entries="@array/list_pressure"
+            android:entryValues="@array/list_pressure"
+            android:key="pressure"
+            android:summary="Default"
+            android:title="@string/pressure">
+
+        </ListPreference>
+
+        <ListPreference
+            android:entries="@array/list_precipitation"
+            android:entryValues="@array/list_precipitation"
+            android:key="precipitation"
+            android:summary="Default"
+            android:title="@string/precipitation">
+
+        </ListPreference>
+
+
+        <ListPreference
+            android:entries="@array/list_dateformat"
+            android:entryValues="@array/list_dateformat"
+            android:key="day_format"
+            android:summary="Default"
+            android:title="@string/day_format">
+
+        </ListPreference>
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

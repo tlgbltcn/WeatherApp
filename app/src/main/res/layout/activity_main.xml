@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.tlgbltcn.app.weather.ui.main.MainActivityViewModel" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/rootView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            tools:context=".ui.main.MainActivity">
+
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:elevation="0dp"
+                android:background="?selectableItemBackgroundBorderless">
+
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolBar"
+                    style="@style/Toolbar"
+                    app:layout_collapseMode="pin"
+                    app:subtitleTextColor="@color/white"
+                    app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                    app:title="Title"
+                    app:titleTextAppearance="@style/Toolbar.TitleText"
+                    app:titleTextColor="@color/white" />
+
+                <com.google.android.material.tabs.TabLayout
+                    style="@style/Widget.MaterialComponents.TabLayout"
+                    android:id="@+id/tabLayout"
+                    app:tabIndicatorAnimationDuration="1000"
+                    app:tabInlineLabel="true"
+                    app:tabSelectedTextColor="@color/white"
+                    app:tabUnboundedRipple="true"
+                    app:tabRippleColor="@color/colorPrimaryDark"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorPrimary"
+                    app:tabTextColor="@color/color_unselectedtab"
+                    app:tabIndicatorColor="@color/white"
+                    android:layout_height="wrap_content"
+                    app:tabMode="fixed"
+                    app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+                    app:tabGravity="fill">
+
+                </com.google.android.material.tabs.TabLayout>
+
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </androidx.viewpager.widget.ViewPager>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+        <com.google.android.material.navigation.NavigationView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            android:background="@color/color_nav"
+            app:headerLayout="@layout/nav_header"
+            app:menu="@menu/nav_drawer_menu"
+            app:itemTextColor="@color/white"
+            app:itemIconTint="@color/white"
+            />
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>
