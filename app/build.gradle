@@ -26,6 +26,8 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion "28.0.3"
 
+
+
     defaultConfig {
         applicationId "com.tlgbltcn.app.weather"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -132,8 +134,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:16.0.0'
 
     //WorkManager
-    implementation "android.arch.work:work-runtime:1.0.0-alpha10"
-    implementation "android.arch.work:work-firebase:1.0.0-alpha10" //optional
+    implementation "android.arch.work:work-runtime:1.0.0-alpha13"
+    implementation "android.arch.work:work-firebase:1.0.0-alpha11" //optional
 
     //Stetho
     implementation 'com.facebook.stetho:stetho:1.5.0'

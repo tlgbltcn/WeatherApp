@@ -13,9 +13,14 @@ import com.tlgbltcn.app.weather.databinding.FragmentTodayBinding
 import com.tlgbltcn.app.weather.db.AppDatabase
 import com.tlgbltcn.app.weather.ui.main.SharedViewModel
 import com.tlgbltcn.app.weather.utils.extensions.toast
+import com.tlgbltcn.app.weather.utils.location.LocationHandler
 import javax.inject.Inject
+import com.tlgbltcn.app.weather.ui.main.MainActivity
 
-class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>(TodayFragmentViewModel::class.java), TodayHandler {
+
+
+class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>(TodayFragmentViewModel::class.java), TodayHandler, LocationHandler {
+
 
     override fun getLayoutRes(): Int = R.layout.fragment_today
     @Inject
@@ -27,32 +32,38 @@ class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>
         val result = super.onCreateView(inflater, container, savedInstanceState)
         (activity?.application as App).component.inject(this)
         mBinding.viewModel = viewModel
-        sharedViewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
         mBinding.handler = this
-        observeData()
+        sharedViewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
+        sharedViewModel.getMyLocationPair().observeForever { loadData(it,19.8909)}
+        (activity as MainActivity).getLatLon(object : LocationHandler {
+            override fun onLocation(lat: Double, lon: Double) {
+                loadData(lat,lon)
+            }
+
+        })
+
+
 
         return result
     }
 
-    private fun observeData() {
-        sharedViewModel.validate.observe(this, Observer {
-            if (it == true){
-                loadData(sharedViewModel.lat.value!!, sharedViewModel.lon.value!!)
-            }
-        })
 
-        sharedViewModel.lat.observe(this,Observer{
-            toast("$it")
-        })
-    }
 
     private fun loadData(lat : Double, lon : Double) {
         val todayData = viewModel.getTodayByCoord(lat, lon)
-        todayData.observe(this, Observer { resource ->
-            mBinding.today = resource.data
-            mBinding.todayResources = resource
-            toast("${resource.data?.cityName}")
-        })
+        todayData.let {
+            todayData.observe(this, Observer { resource ->
+                mBinding.today = resource.data
+                mBinding.resources = resource
+                toast("${resource.data?.cityName} ${resource.data?.cityCountry}")
+            })
+        }
+
+
+    }
+
+    override fun onLocation(lat: Double, lon: Double) {
+        loadData(lat,lon)
     }
 
     override fun onClick() {

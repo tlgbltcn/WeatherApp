@@ -31,6 +31,8 @@ import com.tlgbltcn.app.weather.databinding.ActivityMainBinding
 import com.tlgbltcn.app.weather.service.WeatherService
 import com.tlgbltcn.app.weather.ui.main.setting.SettingActivity
 import com.tlgbltcn.app.weather.utils.extensions.logI
+import com.tlgbltcn.app.weather.utils.extensions.reobserve
+import com.tlgbltcn.app.weather.utils.location.LocationHandler
 import java.text.DateFormat
 import java.util.*
 import javax.inject.Inject
@@ -42,18 +44,14 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
     lateinit var api: WeatherService
 
     protected val TAG = "MainActivity_Location"
-
     private var mGoogleApiClient: GoogleApiClient? = null
-
     private var mLocationRequest: LocationRequest? = null
-
     private var mCurrentLocation: Location? = null
-
     private var mLastUpdateTime: String? = null
-
     private var mRequestingLocationUpdates: Boolean = false
-
     private lateinit var sharedViewModel : SharedViewModel
+    private lateinit var locationHandler : LocationHandler
+
 
     override fun initViewModel(viewModel: MainActivityViewModel) {
         binding.viewModel = viewModel
@@ -77,6 +75,11 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
         updateValuesFromBundle(savedInstanceState)
         buildGoogleApiClient()
         startUpdate()
+    }
+
+
+    fun getLatLon(locationHandler: LocationHandler) {
+        this.locationHandler = locationHandler
     }
 
     private fun isPlayServicesAvailable(context: Context): Boolean {
@@ -142,9 +145,9 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
     private fun updateUI() {
         if (mCurrentLocation == null) return
         else{
-            sharedViewModel.lat.value = mCurrentLocation?.latitude
-            sharedViewModel.lon.value = mCurrentLocation?.longitude
-            sharedViewModel.setLocation()
+
+            locationHandler.onLocation(mCurrentLocation!!.latitude, mCurrentLocation!!.longitude)
+                    //(Pair(mCurrentLocation?.latitude, mCurrentLocation?.longitude))
         }
 
     }
@@ -194,6 +197,9 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
     private fun initToolbar() {
         setSupportActionBar(binding.toolBar)
         supportActionBar?.setDisplayShowHomeEnabled(true)
+        viewModel.getCityName().reobserve(this){
+            viewModel.toolbarTitle.set(it)
+        }
     }
 
     private fun initNavDrawer() {

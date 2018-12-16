@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import com.android.example.github.vo.Resource
 import com.tlgbltcn.app.weather.db.entities.TodayEntity
 
 @Dao
@@ -18,5 +19,8 @@ abstract class TodayDao {
 
     @Query("SELECT * FROM TodayEntity WHERE id = :id")
     abstract fun getToday(id : Long) : LiveData<TodayEntity>
+
+    @Query("SELECT cityName FROM TodayEntity LIMIT 1")
+    abstract fun getCityName() : LiveData<String>
 }
 

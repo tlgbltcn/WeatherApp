@@ -6,6 +6,9 @@
 
     <data>
 
+        <import type="com.android.example.github.vo.Resource"/>
+        <import type="com.android.example.github.vo.Status"/>
+
         <variable
             name="viewModel"
             type="com.tlgbltcn.app.weather.ui.main.fragment.today.TodayFragmentViewModel" />
@@ -20,8 +23,8 @@
             type="com.tlgbltcn.app.weather.db.entities.TodayEntity"/>
 
         <variable
-            name="todayResources"
-            type="com.android.example.github.vo.Resource"/>
+            name="resources"
+            type="Resource"/>
 
     </data>
 
@@ -42,6 +45,13 @@
             android:layout_height="340dp">
 
         </androidx.cardview.widget.CardView>
+
+
+        <ProgressBar
+            app:visibleGone="@{resources.data == null}"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

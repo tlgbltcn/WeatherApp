@@ -12,25 +12,13 @@ class SharedViewModel(app: Application) : BaseViewModel(app) {
 
     var lon: MutableLiveData<Double> = MutableLiveData()
 
-    val validate: MediatorLiveData<Boolean> = MediatorLiveData()
+    var locationPair : MutableLiveData<Double> = MutableLiveData()
 
 
-    var locationData: MediatorLiveData<Pair<Double, Double>> = MediatorLiveData()
-
-
-    fun setLocation() {
-
+    fun setMyLocationPair(loc : Double?) {
+        locationPair.postValue(loc)
     }
 
-    fun updateLocation() {
-        val mLon = 0.0
-        val mLat = 0.0
+    fun getMyLocationPair() : MutableLiveData<Double> = locationPair
 
-        //locationData.addSource(lat) { t -> locationData.value = Pair(t!!, mLon) }
-        //locationData.addSource(lon) { t -> locationData.value = Pair(mLat, t!!) }
-    }
-
-    data class LocationLive(
-            val mLat: Double,
-            val mLon: Double)
 }

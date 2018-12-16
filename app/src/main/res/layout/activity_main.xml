@@ -39,7 +39,7 @@
                     app:layout_collapseMode="pin"
                     app:subtitleTextColor="@color/white"
                     app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-                    app:title="Title"
+                    app:title="@{viewModel.toolbarTitle}"
                     app:titleTextAppearance="@style/Toolbar.TitleText"
                     app:titleTextColor="@color/white" />
 

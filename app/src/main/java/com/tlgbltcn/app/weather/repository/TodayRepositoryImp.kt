@@ -2,26 +2,22 @@ package com.tlgbltcn.app.weather.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
 import com.android.example.github.vo.Resource
-import com.tlgbltcn.app.weather.App
 import com.tlgbltcn.app.weather.AppConstant
 import com.tlgbltcn.app.weather.AppExecutors
 import com.tlgbltcn.app.weather.db.AppDatabase
-import com.tlgbltcn.app.weather.db.dao.TodayDao
 import com.tlgbltcn.app.weather.db.entities.TodayEntity
 import com.tlgbltcn.app.weather.model.today.Today
 import com.tlgbltcn.app.weather.service.WeatherService
-import com.tlgbltcn.app.weather.utils.AbsentLiveData
-import kotlinx.coroutines.experimental.launch
-import kotlinx.coroutines.experimental.runBlocking
-import org.jetbrains.anko.coroutines.experimental.bg
 import javax.inject.Inject
 
 class TodayRepositoryImp @Inject constructor(var db: AppDatabase,
                                              var api: WeatherService,
                                              var appExecutors: AppExecutors) : TodayRepository {
+
+    override fun getCityName(): LiveData<String> {
+        return  db.todayDao().getCityName()
+    }
 
     val data: MediatorLiveData<Today> = MediatorLiveData()
 

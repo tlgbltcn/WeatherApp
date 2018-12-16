@@ -3,16 +3,26 @@ package com.tlgbltcn.app.weather.ui.main
 import android.app.Application
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
+import androidx.databinding.ObservableField
+import androidx.lifecycle.LiveData
 import com.tlgbltcn.app.weather.db.AppDatabase
 import com.tlgbltcn.app.weather.R
 import com.tlgbltcn.app.weather.App
 import com.tlgbltcn.app.weather.core.base.BaseViewModel
+import com.tlgbltcn.app.weather.db.entities.TodayEntity
+import com.tlgbltcn.app.weather.repository.TodayRepository
+import com.tlgbltcn.app.weather.repository.TodayRepositoryImp
 import javax.inject.Inject
 
 class MainActivityViewModel(app: Application) : BaseViewModel(app) {
 
 
     private var sharedPreferences : SharedPreferences
+
+    var toolbarTitle : ObservableField<String> = ObservableField("Weather App")
+
+    @Inject
+    lateinit var repo : TodayRepositoryImp
 
     init {
         (app as? App)?.component?.inject(this)
@@ -37,9 +47,11 @@ class MainActivityViewModel(app: Application) : BaseViewModel(app) {
                         getApplication<Application>().getString(R.string.pm)).apply()
             }
         }
+    }
 
 
-
+    fun getCityName() : LiveData<String>{
+        return repo.getCityName()
     }
 
 

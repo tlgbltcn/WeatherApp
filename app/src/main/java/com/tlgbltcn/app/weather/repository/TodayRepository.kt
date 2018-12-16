@@ -8,5 +8,5 @@ interface TodayRepository {
 
     fun loadToday(latitude : Double, longitude : Double) : LiveData<Resource<TodayEntity>>
 
-
+    fun getCityName() : LiveData<String>
 }
