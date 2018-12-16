@@ -4,13 +4,9 @@ import android.app.Application
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import androidx.databinding.ObservableField
-import androidx.lifecycle.LiveData
-import com.tlgbltcn.app.weather.db.AppDatabase
 import com.tlgbltcn.app.weather.R
 import com.tlgbltcn.app.weather.App
 import com.tlgbltcn.app.weather.core.base.BaseViewModel
-import com.tlgbltcn.app.weather.db.entities.TodayEntity
-import com.tlgbltcn.app.weather.repository.TodayRepository
 import com.tlgbltcn.app.weather.repository.TodayRepositoryImp
 import javax.inject.Inject
 
@@ -50,9 +46,6 @@ class MainActivityViewModel(app: Application) : BaseViewModel(app) {
     }
 
 
-    fun getCityName() : LiveData<String>{
-        return repo.getCityName()
-    }
 
 
 }

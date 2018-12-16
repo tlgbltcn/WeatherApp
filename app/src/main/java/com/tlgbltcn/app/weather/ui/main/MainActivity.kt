@@ -197,9 +197,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
     private fun initToolbar() {
         setSupportActionBar(binding.toolBar)
         supportActionBar?.setDisplayShowHomeEnabled(true)
-        viewModel.getCityName().reobserve(this){
-            viewModel.toolbarTitle.set(it)
-        }
+
     }
 
     private fun initNavDrawer() {

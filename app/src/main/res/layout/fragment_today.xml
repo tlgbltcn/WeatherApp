@@ -20,7 +20,7 @@
 
         <variable
             name="today"
-            type="com.tlgbltcn.app.weather.db.entities.TodayEntity"/>
+            type="com.tlgbltcn.app.weather.model.today.Today"/>
 
         <variable
             name="resources"

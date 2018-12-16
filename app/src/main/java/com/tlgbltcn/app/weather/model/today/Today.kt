@@ -1,12 +1,31 @@
 package com.tlgbltcn.app.weather.model.today
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
-data class Today(
+import com.tlgbltcn.app.weather.db.converters.*
+
+@Entity(tableName = "Today")
+@TypeConverters(CloudsConvertor::class,
+		CoordConvertor::class,
+		MainConvertor::class,
+		SysConvertor::class,
+		WeatherItemConverters::class,
+		WindConvertor::class)data class Today(
+
+
+	@PrimaryKey(autoGenerate = true)
+	var myId: Int? = null,
+
+	@field:SerializedName("id")
+	var id: Int? = null,
 
 	@field:SerializedName("dt")
 	val dt: Long? = null,
 
 	@field:SerializedName("coord")
+	@TypeConverters(CoordConvertor::class)
 	val coord: Coord? = null,
 
 	@field:SerializedName("weather")
@@ -23,9 +42,6 @@ data class Today(
 
 	@field:SerializedName("clouds")
 	val clouds: Clouds? = null,
-
-	@field:SerializedName("id")
-	val id: Int? = null,
 
 	@field:SerializedName("sys")
 	val sys: Sys? = null,

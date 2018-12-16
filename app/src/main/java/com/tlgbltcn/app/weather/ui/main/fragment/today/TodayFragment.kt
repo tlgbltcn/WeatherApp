@@ -42,12 +42,8 @@ class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>
 
         })
 
-
-
         return result
     }
-
-
 
     private fun loadData(lat : Double, lon : Double) {
         val todayData = viewModel.getTodayByCoord(lat, lon)
@@ -55,7 +51,7 @@ class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>
             todayData.observe(this, Observer { resource ->
                 mBinding.today = resource.data
                 mBinding.resources = resource
-                toast("${resource.data?.cityName} ${resource.data?.cityCountry}")
+                toast("${resource.data?.sys?.country} ${resource.data}")
             })
         }
 
