@@ -70,7 +70,7 @@ dependencies {
 
     //supportLib
     implementation "androidx.legacy:legacy-support-v4:$support_version"
-    implementation "androidx.appcompat:appcompat:$support_version"
+    implementation "androidx.appcompat:appcompat:1.0.2"
     implementation "com.google.android.material:material:$support_version"
     implementation "androidx.recyclerview:recyclerview:$support_version"
     implementation "androidx.cardview:cardview:$support_version"

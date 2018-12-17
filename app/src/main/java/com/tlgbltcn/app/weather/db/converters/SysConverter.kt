@@ -6,7 +6,7 @@ import com.google.gson.reflect.TypeToken
 import com.tlgbltcn.app.weather.model.today.Sys
 
 
-class SysConvertor {
+class SysConverter {
 
     @TypeConverter
     fun fromString(value: String): Sys {

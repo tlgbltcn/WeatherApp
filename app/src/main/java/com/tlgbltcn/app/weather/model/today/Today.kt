@@ -7,12 +7,13 @@ import com.google.gson.annotations.SerializedName
 import com.tlgbltcn.app.weather.db.converters.*
 
 @Entity(tableName = "Today")
-@TypeConverters(CloudsConvertor::class,
-		CoordConvertor::class,
-		MainConvertor::class,
-		SysConvertor::class,
-		WeatherItemConverters::class,
-		WindConvertor::class)data class Today(
+@TypeConverters(CloudsConverter::class,
+		CoordConverter::class,
+		MainConverter::class,
+		SysConverter::class,
+		WeatherItemListConverter::class,
+		WindConverter::class)
+data class Today(
 
 
 	@PrimaryKey(autoGenerate = true)
@@ -25,7 +26,6 @@ import com.tlgbltcn.app.weather.db.converters.*
 	val dt: Long? = null,
 
 	@field:SerializedName("coord")
-	@TypeConverters(CoordConvertor::class)
 	val coord: Coord? = null,
 
 	@field:SerializedName("weather")

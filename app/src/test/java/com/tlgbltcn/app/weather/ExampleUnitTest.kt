@@ -1,4 +1,4 @@
-package { { cookiecutter.package_name } }
+package com.tlgbltcn.app.weather
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

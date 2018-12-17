@@ -5,7 +5,7 @@ import com.tlgbltcn.app.weather.model.today.Coord
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
-class CoordConvertor {
+class CoordConverter {
 
     @TypeConverter
     fun fromString(value: String): Coord {

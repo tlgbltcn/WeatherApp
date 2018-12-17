@@ -6,7 +6,7 @@ import com.google.gson.reflect.TypeToken
 import com.tlgbltcn.app.weather.model.today.Wind
 
 
-class WindConvertor {
+class WindConverter {
 
     @TypeConverter
     fun fromString(value: String): Wind {
