@@ -6,7 +6,7 @@ import com.android.example.github.vo.Resource
 import com.tlgbltcn.app.weather.AppConstant
 import com.tlgbltcn.app.weather.AppExecutors
 import com.tlgbltcn.app.weather.db.AppDatabase
-import com.tlgbltcn.app.weather.model.today.Today
+import com.tlgbltcn.app.weather.db.entities.TodayEntity
 import com.tlgbltcn.app.weather.service.WeatherService
 import javax.inject.Inject
 
@@ -15,17 +15,17 @@ class TodayRepositoryImp @Inject constructor(var db: AppDatabase,
                                              var appExecutors: AppExecutors) : TodayRepository {
 
 
-    val data: MediatorLiveData<Today> = MediatorLiveData()
+    val data: MediatorLiveData<TodayEntity> = MediatorLiveData()
 
-    override fun loadToday(latitude: Double, longitude: Double): LiveData<Resource<Today>> {
+    override fun loadToday(latitude: Double, longitude: Double): LiveData<Resource<TodayEntity>> {
 
-        return object : NetworkBoundResource<Today, Today>(appExecutors) {
-            override fun saveCallResult(item: Today) {
+        return object : NetworkBoundResource<TodayEntity, TodayEntity>(appExecutors) {
+            override fun saveCallResult(item: TodayEntity) {
 
                 db.todayDao().insert(item)
             }
 
-            override fun shouldFetch(data: Today?) = data == null
+            override fun shouldFetch(data: TodayEntity?) = data == null
 
             override fun loadFromDb() = db.todayDao().getToday(1)
 

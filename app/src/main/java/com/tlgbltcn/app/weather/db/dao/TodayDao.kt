@@ -5,18 +5,17 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.android.example.github.vo.Resource
-import com.tlgbltcn.app.weather.model.today.Today
+import com.tlgbltcn.app.weather.db.entities.TodayEntity
 
 @Dao
 abstract class TodayDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract fun insert(today : Today)
+    abstract fun insert(todayEntity : TodayEntity)
 
 
-    @Query("SELECT * FROM Today WHERE myId = :id")
-    abstract fun getToday(id : Int) : LiveData<Today>
+    @Query("SELECT * FROM TodayEntity WHERE myId = :id")
+    abstract fun getToday(id : Int) : LiveData<TodayEntity>
 
 }
 

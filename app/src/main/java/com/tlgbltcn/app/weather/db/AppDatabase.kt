@@ -4,15 +4,13 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.tlgbltcn.app.weather.db.converters.*
-import com.tlgbltcn.app.weather.db.dao.ExampleDao
 import com.tlgbltcn.app.weather.db.dao.TodayDao
-import com.tlgbltcn.app.weather.db.entities.Example
-import com.tlgbltcn.app.weather.model.fifteendays.FifteenDaysEntity
-import com.tlgbltcn.app.weather.model.fivedays.FiveDaysEntity
-import com.tlgbltcn.app.weather.model.today.Today
+import com.tlgbltcn.app.weather.db.entities.FifteenDaysEntity
+import com.tlgbltcn.app.weather.db.entities.FiveDaysEntity
+import com.tlgbltcn.app.weather.db.entities.TodayEntity
 
-@Database(entities = [Example::class,Today::class,FiveDaysEntity::class,FifteenDaysEntity::class],
-        version = 2)
+@Database(entities = [TodayEntity::class, FiveDaysEntity::class, FifteenDaysEntity::class],
+        version = 1)
 @TypeConverters(CloudsConverter::class,
         CoordConverter::class,
         MainConverter::class,
@@ -25,7 +23,6 @@ import com.tlgbltcn.app.weather.model.today.Today
         TempConverter::class)
 
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun exampleDao(): ExampleDao
     abstract fun todayDao(): TodayDao
 }
 

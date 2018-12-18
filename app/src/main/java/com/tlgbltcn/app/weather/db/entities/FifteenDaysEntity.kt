@@ -1,22 +1,21 @@
-package com.tlgbltcn.app.weather.model.fivedays
+package com.tlgbltcn.app.weather.db.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.google.gson.annotations.SerializedName
 import com.tlgbltcn.app.weather.db.converters.*
+import com.tlgbltcn.app.weather.model.fivedays.City
+import com.tlgbltcn.app.weather.model.fivedays.ListItem
 
 @Entity
-@TypeConverters(CityConverter::class,
-		ListItemConverter::class,
-		RainConverter::class,
-		CloudsConverter::class,
+@TypeConverters(CloudsConverter::class,
+		CoordConverter::class,
 		MainConverter::class,
 		SysConverter::class,
 		WeatherItemListConverter::class,
-		WindConverter::class)
-data class FiveDaysEntity(
+		WindConverter::class,
+		TempConverter::class)data class FifteenDaysEntity(
 
 	@PrimaryKey(autoGenerate = true)
 	var id : Int? = null,
@@ -24,15 +23,15 @@ data class FiveDaysEntity(
 	@field:SerializedName("city")
 	val city: City? = null,
 
-    @field:SerializedName("cnt")
+	@field:SerializedName("cnt")
 	val cnt: Int? = null,
 
-    @field:SerializedName("cod")
+	@field:SerializedName("cod")
 	val cod: String? = null,
 
-    @field:SerializedName("message")
+	@field:SerializedName("message")
 	val message: Double? = null,
 
-    @field:SerializedName("list")
+	@field:SerializedName("list")
 	val list: List<ListItem?>? = null
 )

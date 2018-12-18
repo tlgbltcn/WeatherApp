@@ -7,7 +7,7 @@ import com.android.example.github.vo.Resource
 import com.tlgbltcn.app.weather.App
 import com.tlgbltcn.app.weather.core.base.BaseViewModel
 import com.tlgbltcn.app.weather.model.today.Coord
-import com.tlgbltcn.app.weather.model.today.Today
+import com.tlgbltcn.app.weather.db.entities.TodayEntity
 import com.tlgbltcn.app.weather.repository.TodayRepository
 import javax.inject.Inject
 
@@ -31,7 +31,7 @@ class TodayFragmentViewModel(app: Application) : BaseViewModel(app) {
         else _coords.value = model
     }
 
-    fun getTodayByCoord(lat : Double, lon : Double) : LiveData<Resource<Today>>{
+    fun getTodayByCoord(lat : Double, lon : Double) : LiveData<Resource<TodayEntity>>{
         return repo.loadToday(latitude = lat, longitude = lon)
     }
 

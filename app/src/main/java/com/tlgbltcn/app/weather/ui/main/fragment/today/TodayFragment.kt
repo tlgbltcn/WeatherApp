@@ -10,21 +10,15 @@ import com.tlgbltcn.app.weather.App
 import com.tlgbltcn.app.weather.R
 import com.tlgbltcn.app.weather.core.base.BaseFragment
 import com.tlgbltcn.app.weather.databinding.FragmentTodayBinding
-import com.tlgbltcn.app.weather.db.AppDatabase
 import com.tlgbltcn.app.weather.ui.main.SharedViewModel
 import com.tlgbltcn.app.weather.utils.extensions.toast
 import com.tlgbltcn.app.weather.utils.location.LocationHandler
-import javax.inject.Inject
 import com.tlgbltcn.app.weather.ui.main.MainActivity
-
 
 
 class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>(TodayFragmentViewModel::class.java), TodayHandler, LocationHandler {
 
-
     override fun getLayoutRes(): Int = R.layout.fragment_today
-    @Inject
-    lateinit var db : AppDatabase
 
     private lateinit var sharedViewModel : SharedViewModel
 
@@ -49,7 +43,7 @@ class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>
         val todayData = viewModel.getTodayByCoord(lat, lon)
         todayData.let {
             todayData.observe(this, Observer { resource ->
-                mBinding.today = resource.data
+                mBinding.todayEntity = resource.data
                 mBinding.resources = resource
                 toast("${resource.data?.sys?.country} ${resource.data}")
             })
