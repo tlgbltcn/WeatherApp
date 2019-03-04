@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'io.fabric.tools:gradle:1.26.1'
+        classpath 'io.fabric.tools:gradle:1.27.1'
     }
 }
 
@@ -134,7 +134,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:16.0.0'
 
     //WorkManager
-    implementation "android.arch.work:work-runtime:1.0.0-alpha13"
+    implementation "android.arch.work:work-runtime:1.0.0-rc02"
     implementation "android.arch.work:work-firebase:1.0.0-alpha11" //optional
 
     //Stetho

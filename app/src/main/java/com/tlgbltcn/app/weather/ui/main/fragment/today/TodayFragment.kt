@@ -10,10 +10,9 @@ import com.tlgbltcn.app.weather.App
 import com.tlgbltcn.app.weather.R
 import com.tlgbltcn.app.weather.core.base.BaseFragment
 import com.tlgbltcn.app.weather.databinding.FragmentTodayBinding
-import com.tlgbltcn.app.weather.ui.main.SharedViewModel
-import com.tlgbltcn.app.weather.utils.extensions.toast
-import com.tlgbltcn.app.weather.utils.location.LocationHandler
 import com.tlgbltcn.app.weather.ui.main.MainActivity
+import com.tlgbltcn.app.weather.ui.main.SharedViewModel
+import com.tlgbltcn.app.weather.utils.location.LocationHandler
 
 
 class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>(TodayFragmentViewModel::class.java), TodayHandler, LocationHandler {
@@ -28,7 +27,6 @@ class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>
         mBinding.viewModel = viewModel
         mBinding.handler = this
         sharedViewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
-        sharedViewModel.getMyLocationPair().observeForever { loadData(it,19.8909)}
         (activity as MainActivity).getLatLon(object : LocationHandler {
             override fun onLocation(lat: Double, lon: Double) {
                 loadData(lat,lon)
@@ -45,10 +43,9 @@ class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>
             todayData.observe(this, Observer { resource ->
                 mBinding.todayEntity = resource.data
                 mBinding.resources = resource
-                toast("${resource.data?.sys?.country} ${resource.data}")
+
             })
         }
-
 
     }
 

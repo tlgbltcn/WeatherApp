@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.example.github.vo
+package com.tlgbltcn.app.weather.service
 
 /**
  * Status of a resource that is provided to the UI.

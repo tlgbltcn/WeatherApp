@@ -16,16 +16,12 @@
 
 package com.tlgbltcn.app.weather.repository
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
-import com.android.example.github.vo.Resource
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import com.tlgbltcn.app.weather.AppExecutors
-import com.tlgbltcn.app.weather.service.ApiEmptyResponse
-import com.tlgbltcn.app.weather.service.ApiErrorResponse
-import com.tlgbltcn.app.weather.service.ApiResponse
-import com.tlgbltcn.app.weather.service.ApiSuccessResponse
+import com.tlgbltcn.app.weather.service.*
 
 /**
  * A generic class that can provide a resource backed by both the sqlite database and the network.

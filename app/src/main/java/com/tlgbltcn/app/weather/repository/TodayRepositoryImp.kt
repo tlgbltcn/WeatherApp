@@ -2,11 +2,11 @@ package com.tlgbltcn.app.weather.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import com.android.example.github.vo.Resource
 import com.tlgbltcn.app.weather.AppConstant
 import com.tlgbltcn.app.weather.AppExecutors
 import com.tlgbltcn.app.weather.db.AppDatabase
 import com.tlgbltcn.app.weather.db.entities.TodayEntity
+import com.tlgbltcn.app.weather.service.Resource
 import com.tlgbltcn.app.weather.service.WeatherService
 import javax.inject.Inject
 

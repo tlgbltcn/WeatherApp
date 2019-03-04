@@ -53,8 +53,10 @@
             android:name="io.fabric.ApiKey"
             android:value=""  />
 
-        <service android:name=".utils.google_location_service.LocationService" android:enabled="true" />
-        <service android:name=".utils.loc.LocationService" />
+        <service
+            android:name=".utils.service.MyJobService"
+            android:enabled="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>

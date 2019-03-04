@@ -15,14 +15,12 @@ import com.tlgbltcn.app.weather.App
 import com.tlgbltcn.app.weather.R
 import com.tlgbltcn.app.weather.service.WeatherService
 import com.tlgbltcn.app.weather.ui.main.MainActivity
-import com.tlgbltcn.app.weather.utils.service.GPSTracker
 import timber.log.Timber
-import java.util.ArrayList
+import java.util.*
 import javax.inject.Inject
 
 
 class SplashActivity : AppCompatActivity() {
-
 
     private val REQ_CODE = 100
 
@@ -32,14 +30,10 @@ class SplashActivity : AppCompatActivity() {
 
     private var permissionsGranted = false
 
-    lateinit var gpsTracker: GPSTracker
-
     var isGpsOpen: Boolean? = null
-
 
     @Inject
     lateinit var api: WeatherService
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +44,6 @@ class SplashActivity : AppCompatActivity() {
 
     }
 
-
     private fun subscribeUI() {
         when {
             Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP -> checkLocationPermission()
@@ -60,8 +53,6 @@ class SplashActivity : AppCompatActivity() {
                 else -> startMainActivity()
             }
         }
-
-
     }
 
     fun startMainActivity() {
@@ -77,9 +68,7 @@ class SplashActivity : AppCompatActivity() {
                 finish()
             }
         }).start()
-
     }
-
 
     private fun checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -90,13 +79,9 @@ class SplashActivity : AppCompatActivity() {
         if (!permissionList.isEmpty()) {
             ActivityCompat.requestPermissions(this, permissionList.toTypedArray(), REQ_CODE)
         } else {
-
-
             startMainActivity()
-
         }
     }
-
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

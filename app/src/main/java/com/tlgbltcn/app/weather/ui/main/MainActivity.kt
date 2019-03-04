@@ -1,8 +1,12 @@
 package com.tlgbltcn.app.weather.ui.main
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
+import android.app.job.JobInfo
+import android.app.job.JobScheduler
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
@@ -14,6 +18,7 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -31,8 +36,8 @@ import com.tlgbltcn.app.weather.databinding.ActivityMainBinding
 import com.tlgbltcn.app.weather.service.WeatherService
 import com.tlgbltcn.app.weather.ui.main.setting.SettingActivity
 import com.tlgbltcn.app.weather.utils.extensions.logI
-import com.tlgbltcn.app.weather.utils.extensions.reobserve
 import com.tlgbltcn.app.weather.utils.location.LocationHandler
+import com.tlgbltcn.app.weather.utils.service.MyJobService
 import java.text.DateFormat
 import java.util.*
 import javax.inject.Inject
@@ -51,6 +56,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
     private var mRequestingLocationUpdates: Boolean = false
     private lateinit var sharedViewModel : SharedViewModel
     private lateinit var locationHandler : LocationHandler
+    private lateinit var jobSchedular: JobScheduler
 
 
     override fun initViewModel(viewModel: MainActivityViewModel) {
@@ -59,6 +65,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
 
     override fun getLayoutRes() = R.layout.activity_main
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (application as App).component.inject(this)
@@ -68,13 +75,31 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
         subscribeUI(savedInstanceState)
     }
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     private fun subscribeUI(savedInstanceState: Bundle?) {
         initToolbar()
         initNavDrawer()
         initTabLayout()
         updateValuesFromBundle(savedInstanceState)
         buildGoogleApiClient()
+        setupJobService()
         startUpdate()
+    }
+
+    @SuppressLint("ServiceCast")
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun setupJobService() {
+        val componentName = ComponentName(this, MyJobService::class.java)
+        jobSchedular = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
+        var jobInfo = JobInfo.Builder(1000, componentName)
+                .setMinimumLatency(0)
+                .build()
+
+        jobSchedular.let {
+            it.schedule(jobInfo)
+            Log.i("Activity", "JobSchedular is started from activity}")
+
+        }
     }
 
 

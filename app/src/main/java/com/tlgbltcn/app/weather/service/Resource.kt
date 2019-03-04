@@ -14,11 +14,9 @@
  * limitations under the License.
  */
 
-package com.android.example.github.vo
+package com.tlgbltcn.app.weather.service
 
-import com.android.example.github.vo.Status.ERROR
-import com.android.example.github.vo.Status.LOADING
-import com.android.example.github.vo.Status.SUCCESS
+import com.tlgbltcn.app.weather.service.Status.*
 
 /**
  * A generic class that holds a value with its loading status.
