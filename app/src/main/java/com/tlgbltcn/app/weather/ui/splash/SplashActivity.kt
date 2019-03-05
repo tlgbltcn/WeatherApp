@@ -1,4 +1,4 @@
-package com.tlgbltcn.app.weather.ui.main.splash
+package com.tlgbltcn.app.weather.ui.splash
 
 import android.Manifest
 import android.content.Context

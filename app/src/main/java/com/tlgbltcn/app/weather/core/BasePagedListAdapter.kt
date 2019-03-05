@@ -1,4 +1,4 @@
-package com.tlgbltcn.app.weather.core.base
+package com.tlgbltcn.app.weather.core
 
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding

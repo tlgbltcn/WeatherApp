@@ -1,9 +1,9 @@
-package com.tlgbltcn.app.weather.core.base
+package com.tlgbltcn.app.weather.core
 
-import androidx.databinding.ViewDataBinding
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.DiffUtil
 import android.view.ViewGroup
+import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import com.tlgbltcn.app.weather.R
 
 abstract class BaseAdapter<T>(callback: DiffUtil.ItemCallback<T>) : ListAdapter<T, BaseViewHolder<ViewDataBinding>>(callback) {

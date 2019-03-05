@@ -1,24 +1,16 @@
 package com.tlgbltcn.app.weather.utils.location
 
+import android.Manifest.permission.ACCESS_COARSE_LOCATION
+import android.Manifest.permission.ACCESS_FINE_LOCATION
 import android.content.Context
 import android.content.Intent
-import android.location.Address
-import android.location.Criteria
-import android.location.Geocoder
-import android.location.Location
-import android.location.LocationListener
-import android.location.LocationManager
-import android.location.LocationProvider
+import android.location.*
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
-
-import java.io.IOException
-import java.util.Locale
-
-import android.Manifest.permission.ACCESS_COARSE_LOCATION
-import android.Manifest.permission.ACCESS_FINE_LOCATION
 import androidx.annotation.RequiresPermission
+import java.io.IOException
+import java.util.*
 
 /**
  * <pre>

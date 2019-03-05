@@ -1,15 +1,13 @@
-package com.tlgbltcn.app.weather.ui.main.fragment.today
+package com.tlgbltcn.app.weather.ui.fragment.today
 
 import android.app.Application
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.tlgbltcn.app.weather.App
-import com.tlgbltcn.app.weather.core.base.BaseViewModel
-import com.tlgbltcn.app.weather.db.entities.TodayEntity
+import com.tlgbltcn.app.weather.core.BaseViewModel
 import com.tlgbltcn.app.weather.model.today.Coord
 import com.tlgbltcn.app.weather.repository.TodayRepository
-import com.tlgbltcn.app.weather.service.Resource
 import javax.inject.Inject
 
 class TodayFragmentViewModel(app: Application) : BaseViewModel(app) {
@@ -34,8 +32,6 @@ class TodayFragmentViewModel(app: Application) : BaseViewModel(app) {
         else _coords.value = model
     }
 
-    fun getTodayByCoord(lat : Double, lon : Double) : LiveData<Resource<TodayEntity>>{
-        return repo.loadToday(latitude = lat, longitude = lon)
-    }
+    fun getTodayByCoord(lat: Double, lon: Double) = repo.loadToday(latitude = lat, longitude = lon)
 
 }

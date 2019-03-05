@@ -4,9 +4,9 @@ import android.app.Application
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import androidx.databinding.ObservableField
-import com.tlgbltcn.app.weather.R
 import com.tlgbltcn.app.weather.App
-import com.tlgbltcn.app.weather.core.base.BaseViewModel
+import com.tlgbltcn.app.weather.R
+import com.tlgbltcn.app.weather.core.BaseViewModel
 import com.tlgbltcn.app.weather.repository.TodayRepositoryImp
 import javax.inject.Inject
 

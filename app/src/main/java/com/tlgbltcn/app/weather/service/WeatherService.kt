@@ -7,9 +7,6 @@ import retrofit2.http.Query
 
 interface WeatherService {
 
-    //  "https://samples.openweathermap.org/"
-
-
     @GET("/data/2.5/weather")
     fun getTodaybyCity(@Query("q") city : String, @Query("appid") apiKey : String) : LiveData<ApiResponse<TodayEntity>>
 

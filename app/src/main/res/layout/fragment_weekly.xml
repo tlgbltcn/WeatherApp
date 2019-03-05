@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.tlgbltcn.app.weather.ui.main.fragment.fivedays.FiveDaysViewModel" />
+            type="com.tlgbltcn.app.weather.ui.fragment.fivedays.FiveDaysViewModel" />
 
     </data>
 

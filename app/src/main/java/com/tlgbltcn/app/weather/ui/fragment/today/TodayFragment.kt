@@ -1,4 +1,4 @@
-package com.tlgbltcn.app.weather.ui.main.fragment.today
+package com.tlgbltcn.app.weather.ui.fragment.today
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.tlgbltcn.app.weather.App
 import com.tlgbltcn.app.weather.R
-import com.tlgbltcn.app.weather.core.base.BaseFragment
+import com.tlgbltcn.app.weather.core.BaseFragment
 import com.tlgbltcn.app.weather.databinding.FragmentTodayBinding
 import com.tlgbltcn.app.weather.ui.main.MainActivity
 import com.tlgbltcn.app.weather.ui.main.SharedViewModel
@@ -19,7 +19,7 @@ class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>
 
     override fun getLayoutRes(): Int = R.layout.fragment_today
 
-    private lateinit var sharedViewModel : SharedViewModel
+    private lateinit var sharedViewModel: SharedViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val result = super.onCreateView(inflater, container, savedInstanceState)
@@ -29,31 +29,30 @@ class TodayFragment : BaseFragment<TodayFragmentViewModel, FragmentTodayBinding>
         sharedViewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
         (activity as MainActivity).getLatLon(object : LocationHandler {
             override fun onLocation(lat: Double, lon: Double) {
-                loadData(lat,lon)
+                loadData(lat, lon)
             }
-
         })
 
         return result
     }
 
-    private fun loadData(lat : Double, lon : Double) {
-        val todayData = viewModel.getTodayByCoord(lat, lon)
-        todayData.let {
-            todayData.observe(this, Observer { resource ->
-                mBinding.todayEntity = resource.data
-                mBinding.resources = resource
-
+    private fun loadData(lat: Double, lon: Double) {
+        viewModel.getTodayByCoord(lat, lon).let { data ->
+            data.observe(this, Observer {
+                mBinding.apply {
+                    todayEntity = it.data
+                    resources = it
+                }
             })
         }
-
     }
 
     override fun onLocation(lat: Double, lon: Double) {
-        loadData(lat,lon)
+        loadData(lat, lon)
     }
 
     override fun onClick() {
 
     }
+
 }

@@ -5,22 +5,20 @@ import android.content.SharedPreferences
 import com.tlgbltcn.app.weather.App
 import com.tlgbltcn.app.weather.di.module.ApplicationModule
 import com.tlgbltcn.app.weather.di.module.DatabaseModule
-import com.tlgbltcn.app.weather.ui.main.MainActivityViewModel
-
 import com.tlgbltcn.app.weather.di.module.NetModule
 import com.tlgbltcn.app.weather.di.module.RepoModule
 import com.tlgbltcn.app.weather.repository.TodayRepository
+import com.tlgbltcn.app.weather.ui.fragment.fifteendays.FifteenDaysFragment
+import com.tlgbltcn.app.weather.ui.fragment.fifteendays.FifteenDaysViewModel
+import com.tlgbltcn.app.weather.ui.fragment.fivedays.FiveDaysFragment
+import com.tlgbltcn.app.weather.ui.fragment.fivedays.FiveDaysViewModel
+import com.tlgbltcn.app.weather.ui.fragment.today.TodayFragment
+import com.tlgbltcn.app.weather.ui.fragment.today.TodayFragmentViewModel
 import com.tlgbltcn.app.weather.ui.main.MainActivity
-import com.tlgbltcn.app.weather.ui.main.fragment.fivedays.FiveDaysFragment
-import com.tlgbltcn.app.weather.ui.main.fragment.fivedays.FiveDaysViewModel
-import com.tlgbltcn.app.weather.ui.main.fragment.today.TodayFragment
-import com.tlgbltcn.app.weather.ui.main.fragment.today.TodayFragmentViewModel
-import com.tlgbltcn.app.weather.ui.main.fragment.fifteendays.FifteenDaysFragment
-import com.tlgbltcn.app.weather.ui.main.fragment.fifteendays.FifteenDaysViewModel
-import com.tlgbltcn.app.weather.ui.main.setting.SettingActivity
-import com.tlgbltcn.app.weather.ui.main.setting.SettingActivityViewModel
-import com.tlgbltcn.app.weather.ui.main.splash.SplashActivity
-
+import com.tlgbltcn.app.weather.ui.main.MainActivityViewModel
+import com.tlgbltcn.app.weather.ui.setting.SettingActivity
+import com.tlgbltcn.app.weather.ui.setting.SettingActivityViewModel
+import com.tlgbltcn.app.weather.ui.splash.SplashActivity
 import dagger.Component
 import javax.inject.Singleton
 

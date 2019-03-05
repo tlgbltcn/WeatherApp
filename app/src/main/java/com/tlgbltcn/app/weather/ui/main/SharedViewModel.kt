@@ -1,9 +1,8 @@
 package com.tlgbltcn.app.weather.ui.main
 
 import android.app.Application
-import androidx.databinding.adapters.NumberPickerBindingAdapter.setValue
-import androidx.lifecycle.*
-import com.tlgbltcn.app.weather.core.base.BaseViewModel
+import androidx.lifecycle.MutableLiveData
+import com.tlgbltcn.app.weather.core.BaseViewModel
 
 class SharedViewModel(app: Application) : BaseViewModel(app) {
 

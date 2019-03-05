@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.tlgbltcn.app.weather.ui.main.setting.SettingActivityViewModel" />
+            type="com.tlgbltcn.app.weather.ui.setting.SettingActivityViewModel" />
     </data>
 
     <LinearLayout

@@ -1,13 +1,11 @@
-package com.tlgbltcn.app.weather.ui.main.setting.fragment
+package com.tlgbltcn.app.weather.ui.setting.fragment
 
 import android.os.Bundle
 import android.preference.ListPreference
 import android.preference.Preference
 import android.preference.PreferenceFragment
-import com.tlgbltcn.app.weather.R
 import android.preference.PreferenceManager
-import android.content.SharedPreferences
-
+import com.tlgbltcn.app.weather.R
 
 
 class SettingsFragment : PreferenceFragment() {

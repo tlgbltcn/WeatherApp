@@ -10,7 +10,6 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.tlgbltcn.app.weather.R
-import com.tlgbltcn.app.weather.core.base.BaseAdapter
 import com.tlgbltcn.app.weather.service.Status
 import java.text.SimpleDateFormat
 import java.util.*

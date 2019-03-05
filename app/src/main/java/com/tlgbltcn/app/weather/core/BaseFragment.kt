@@ -1,4 +1,4 @@
-package com.tlgbltcn.app.weather.core.base
+package com.tlgbltcn.app.weather.core
 
 import android.os.Bundle
 import android.view.LayoutInflater

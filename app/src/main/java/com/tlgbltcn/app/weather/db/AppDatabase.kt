@@ -10,7 +10,7 @@ import com.tlgbltcn.app.weather.db.entities.FiveDaysEntity
 import com.tlgbltcn.app.weather.db.entities.TodayEntity
 
 @Database(entities = [TodayEntity::class, FiveDaysEntity::class, FifteenDaysEntity::class],
-        version = 1)
+        version = 2)
 @TypeConverters(CloudsConverter::class,
         CoordConverter::class,
         MainConverter::class,

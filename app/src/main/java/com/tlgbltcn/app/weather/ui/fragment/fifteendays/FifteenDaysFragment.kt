@@ -1,4 +1,4 @@
-package com.tlgbltcn.app.weather.ui.main.fragment.fifteendays
+package com.tlgbltcn.app.weather.ui.fragment.fifteendays
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.tlgbltcn.app.weather.App
 import com.tlgbltcn.app.weather.R
-import com.tlgbltcn.app.weather.core.base.BaseFragment
+import com.tlgbltcn.app.weather.core.BaseFragment
 import com.tlgbltcn.app.weather.databinding.FragmentYesterdayBinding
 
 class FifteenDaysFragment : BaseFragment<FifteenDaysViewModel, FragmentYesterdayBinding>(FifteenDaysViewModel::class.java) {

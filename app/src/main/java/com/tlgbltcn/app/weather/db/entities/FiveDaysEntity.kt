@@ -10,30 +10,30 @@ import com.tlgbltcn.app.weather.model.fivedays.ListItem
 
 @Entity
 @TypeConverters(CityConverter::class,
-		ListItemConverter::class,
-		RainConverter::class,
-		CloudsConverter::class,
-		MainConverter::class,
-		SysConverter::class,
-		WeatherItemListConverter::class,
-		WindConverter::class)
+        ListItemConverter::class,
+        RainConverter::class,
+        CloudsConverter::class,
+        MainConverter::class,
+        SysConverter::class,
+        WeatherItemListConverter::class,
+        WindConverter::class)
 data class FiveDaysEntity(
 
-		@PrimaryKey(autoGenerate = true)
-	var id : Int? = null,
+        @PrimaryKey(autoGenerate = true)
+        var id: Int? = null,
 
-		@field:SerializedName("city")
-	val city: City? = null,
+        @field:SerializedName("city")
+        val city: City? = null,
 
-		@field:SerializedName("cnt")
-	val cnt: Int? = null,
+        @field:SerializedName("cnt")
+        val cnt: Int? = null,
 
-		@field:SerializedName("cod")
-	val cod: String? = null,
+        @field:SerializedName("cod")
+        val cod: String? = null,
 
-		@field:SerializedName("message")
-	val message: Double? = null,
+        @field:SerializedName("message")
+        val message: Double? = null,
 
-		@field:SerializedName("list")
-	val list: List<ListItem?>? = null
+        @field:SerializedName("list")
+        val list: List<ListItem?>? = null
 )

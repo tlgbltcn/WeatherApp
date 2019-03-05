@@ -14,7 +14,6 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -31,13 +30,14 @@ import com.google.android.material.tabs.TabLayout
 import com.tlgbltcn.app.weather.App
 import com.tlgbltcn.app.weather.AppConstant
 import com.tlgbltcn.app.weather.R
-import com.tlgbltcn.app.weather.core.base.BaseActivity
+import com.tlgbltcn.app.weather.core.BaseActivity
 import com.tlgbltcn.app.weather.databinding.ActivityMainBinding
 import com.tlgbltcn.app.weather.service.WeatherService
-import com.tlgbltcn.app.weather.ui.main.setting.SettingActivity
+import com.tlgbltcn.app.weather.ui.setting.SettingActivity
 import com.tlgbltcn.app.weather.utils.extensions.logI
 import com.tlgbltcn.app.weather.utils.location.LocationHandler
 import com.tlgbltcn.app.weather.utils.service.MyJobService
+import timber.log.Timber
 import java.text.DateFormat
 import java.util.*
 import javax.inject.Inject
@@ -97,7 +97,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
 
         jobSchedular.let {
             it.schedule(jobInfo)
-            Log.i("Activity", "JobSchedular is started from activity}")
+            Timber.i("JobSchedular is started from activity}")
 
         }
     }
@@ -139,7 +139,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
     }
 
     private fun updateValuesFromBundle(savedInstanceState: Bundle?) {
-        Log.i(TAG, "Updating values from bundle")
+        Timber.i("Updating values from bundle")
         if (savedInstanceState != null) {
             if (savedInstanceState.keySet().contains(AppConstant.REQUESTING_LOCATION_UPDATES_KEY)) {
                 mRequestingLocationUpdates = savedInstanceState.getBoolean(AppConstant.REQUESTING_LOCATION_UPDATES_KEY)
@@ -168,18 +168,14 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
     }
 
     private fun updateUI() {
-        if (mCurrentLocation == null) return
-        else{
-
+        mCurrentLocation?.let {
             locationHandler.onLocation(mCurrentLocation!!.latitude, mCurrentLocation!!.longitude)
-                    //(Pair(mCurrentLocation?.latitude, mCurrentLocation?.longitude))
         }
-
     }
 
 
     override fun onConnected(p0: Bundle?) {
-        Log.i(TAG, "onConnected")
+        Timber.i("onConnected")
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) !== PackageManager.PERMISSION_GRANTED) {
             return
         }
@@ -195,16 +191,16 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
     }
 
     override fun onConnectionSuspended(p0: Int) {
-        Log.i(TAG, "Connection suspended")
+        Timber.i("Connection suspended")
         mGoogleApiClient?.connect()
     }
 
     override fun onConnectionFailed(connectionResult: ConnectionResult) {
-        Log.i(TAG, "Connection failed: ConnectionResult.getErrorCode() = " + connectionResult.errorCode)
+        Timber.i("Connection failed: ConnectionResult.getErrorCode() = " + connectionResult.errorCode)
     }
 
     override fun onLocationChanged(location: Location?) {
-        Log.i(TAG, "onLocationChanged")
+        Timber.i("onLocationChanged")
         mCurrentLocation = location
         mLastUpdateTime = DateFormat.getTimeInstance().format(Date())
         updateUI()
@@ -312,7 +308,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
 
 
     private fun startLocationUpdates() {
-        Log.i(TAG, "startLocationUpdates")
+        Timber.i("startLocationUpdates")
 
         val builder = LocationSettingsRequest.Builder()
                 .addLocationRequest(mLocationRequest!!)
@@ -409,7 +405,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(Ma
     }
 
     protected fun stopLocationUpdates() {
-        Log.i(TAG, "stopLocationUpdates")
+        Timber.i("stopLocationUpdates")
         LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this)
     }
 

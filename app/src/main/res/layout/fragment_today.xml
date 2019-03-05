@@ -12,11 +12,11 @@
 
         <variable
             name="viewModel"
-            type="com.tlgbltcn.app.weather.ui.main.fragment.today.TodayFragmentViewModel" />
+            type="com.tlgbltcn.app.weather.ui.fragment.today.TodayFragmentViewModel" />
 
         <variable
             name="handler"
-            type="com.tlgbltcn.app.weather.ui.main.fragment.today.TodayHandler"/>
+            type="com.tlgbltcn.app.weather.ui.fragment.today.TodayHandler" />
 
 
         <variable

@@ -1,4 +1,4 @@
-package com.tlgbltcn.app.weather.core.base
+package com.tlgbltcn.app.weather.core
 
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView

@@ -1,16 +1,16 @@
-package com.tlgbltcn.app.weather.core.base
+package com.tlgbltcn.app.weather.core
 
 import android.content.SharedPreferences
 import android.os.Build
-import androidx.lifecycle.ViewModelProviders
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import android.os.Bundle
 import android.preference.PreferenceManager
 import androidx.annotation.LayoutRes
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+import androidx.lifecycle.ViewModelProviders
 import com.tlgbltcn.app.weather.R
 import com.tlgbltcn.app.weather.utils.ui.BarUtils
 
