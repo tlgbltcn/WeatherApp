@@ -4,6 +4,7 @@ object AppConstant {
 
     val BASE_URL = "https://api.openweathermap.org"
     val API_KEY = "29126df019f086747b1870a31b2e8bc3"
+    val WEATHER_ICON_URL = "http://openweathermap.org/img/w/"
 
     val REQUESTING_LOCATION_UPDATES_KEY = "requesting-location-updates-key"
     val LOCATION_KEY = "location-key"

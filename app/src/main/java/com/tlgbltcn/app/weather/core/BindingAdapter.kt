@@ -6,9 +6,11 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import com.tlgbltcn.app.weather.AppConstant
 import com.tlgbltcn.app.weather.R
 import com.tlgbltcn.app.weather.service.Status
 import java.text.SimpleDateFormat
@@ -27,7 +29,7 @@ object BindingAdapter {
 
     @JvmStatic
     @BindingAdapter("app:src")
-    fun setImageViewResource(imageView: ImageView, resource: Int?) {
+    fun setImageViewResource(imageView: AppCompatImageView, resource: Int?) {
         resource?.let { imageView.setImageResource(it) }
     }
 
@@ -42,6 +44,21 @@ object BindingAdapter {
                     .centerCrop()
                     .into(view)
         }
+    }
+
+
+    @JvmStatic
+    @BindingAdapter("app:setWeatherImage")
+    fun setWeathreImage(view: AppCompatImageView, resourceCode: String?) {
+        resourceCode?.isNotEmpty().let {
+            Picasso.get()
+                    .load(Uri.parse("${AppConstant.WEATHER_ICON_URL}$resourceCode${".png"}"))
+                    .error(R.drawable.bg_default_image)
+                    .fit()
+                    .centerCrop()
+                    .into(view)
+        }
+
     }
 
     @JvmStatic
