@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'io.fabric.tools:gradle:1.27.1'
+        classpath 'io.fabric.tools:gradle:1.31.0'
     }
 }
 
@@ -82,7 +82,7 @@ dependencies {
 
     //crashlytics
     implementation (rootProject.ext.crashlytics){
-        transitive = true;
+        transitive = true
     }
 
     //di
